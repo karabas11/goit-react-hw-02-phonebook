@@ -5,7 +5,6 @@ import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
 import { Container } from "./App.styled";
 
-
 class App extends Component {
   state = {
     contacts: [
@@ -34,17 +33,16 @@ class App extends Component {
     // }))
    
     this.setState(({contacts}) => ({
-      
       contacts: [newContact, ...contacts] 
     }))
    
   }
 
-  deleteContact = (contactId => {
+  deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
     }))
-  })
+  }
 
   changeFilter = (e) => {
     const {value} = e.currentTarget;
@@ -53,18 +51,14 @@ class App extends Component {
 
   getVisibleContacts = () => {
     const { contacts, filter } = this.state;
-
     const normalizedFilter = filter.toLowerCase();
 
     return contacts.filter(contact => 
       contact.name.toLowerCase().includes(normalizedFilter))
   }
 
-  
-
   render() {
     const {  filter } = this.state;
-
     const visibleContacts = this.getVisibleContacts();
 
     return (
@@ -90,4 +84,3 @@ class App extends Component {
   }
 
   export default App;
-  

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Form, FormButton, FormInput, FormLabel } from "./ContactForm.styled";
 
 class ContactForm extends Component {
-
   state = {
     name: '',
     number: ''
@@ -17,13 +16,11 @@ class ContactForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-
     // this.props.createContact({
     //   name: this.state.name,
     //   number: this.state.number
     // })
     this.props.createContact(this.state)
-
     this.setState({
       name: '',
       number: ''
@@ -53,12 +50,10 @@ class ContactForm extends Component {
     </Form>
     )
   }
-
 };
 
 ContactForm.propTypes = {
-  number: PropTypes.string,
-  name: PropTypes.string,
+  handleChange: PropTypes.func,
 };
 
 export default ContactForm;

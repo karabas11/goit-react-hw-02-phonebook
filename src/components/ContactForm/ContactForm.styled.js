@@ -25,7 +25,6 @@ export const FormInput = styled.input`
     background-color: #e4e9f0;
   }
 `
-
 export const FormButton = styled.button`
     width: 100px;
     background-color: #f3f6f9;
